@@ -8,50 +8,100 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: #0f172a;
     color: #e2e8f0;
+    scroll-behavior: smooth;
 }
 
+/* HEADER */
 header {
     text-align: center;
-    padding: 40px;
-    background: #020617;
-    border-bottom: 2px solid #38bdf8;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #020617, #0f172a);
 }
 
 h1 {
-    margin: 0;
+    font-size: 40px;
     color: #38bdf8;
+    animation: fadeDown 1s ease forwards;
 }
 
+header p {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* SECTIONS */
 .section {
     max-width: 900px;
     margin: auto;
     padding: 30px;
 }
 
+/* CARDS */
 .card {
     background: #020617;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    border-left: 5px solid #38bdf8;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 12px;
+    border-left: 4px solid #38bdf8;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
 }
 
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HOVER EFFECT */
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(56,189,248,0.3);
+}
+
+/* TITLES */
 h2 {
     color: #38bdf8;
 }
 
+/* BADGES */
 .badge {
     display: inline-block;
     background: #1e293b;
-    padding: 6px 10px;
-    margin: 5px;
-    border-radius: 5px;
+    padding: 6px 12px;
+    margin: 6px;
+    border-radius: 6px;
     font-size: 13px;
+    transition: 0.3s;
 }
 
+.badge:hover {
+    background: #38bdf8;
+    color: black;
+}
+
+/* BUTTON */
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a.button:hover {
+    background: #0ea5e9;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -59,6 +109,16 @@ footer {
     border-top: 1px solid #38bdf8;
 }
 
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
 </style>
 </head>
 
@@ -66,66 +126,43 @@ footer {
 
 <header>
     <h1>Atharva Patil</h1>
-    <p>Linux & Networking Enthusiast | Future Cloud Engineer</p>
+    <p>Linux | Networking | Future Cloud Engineer</p>
 </header>
 
 <div class="section">
 
     <div class="card">
         <h2>🎯 Objective</h2>
-        <p>
-        Passionate learner in Linux, Networking, and Security. Seeking internship opportunities to apply real-world skills in system administration and network engineering.
-        </p>
+        <p>Passionate about Linux, Networking, and Security. Seeking internship opportunities to apply real-world system administration skills.</p>
     </div>
 
     <div class="card">
         <h2>🧠 Skills</h2>
-        <div>
-            <span class="badge">Linux</span>
-            <span class="badge">NGINX</span>
-            <span class="badge">Fail2Ban</span>
-            <span class="badge">Firewall (UFW)</span>
-            <span class="badge">SSH</span>
-            <span class="badge">Logs Monitoring</span>
-            <span class="badge">Networking</span>
-            <span class="badge">TCP/IP</span>
-            <span class="badge">VLAN</span>
-            <span class="badge">OSPF</span>
-            <span class="badge">ACL</span>
-            <span class="badge">NAT</span>
-            <span class="badge">DHCP</span>
-        </div>
+        <span class="badge">Linux</span>
+        <span class="badge">NGINX</span>
+        <span class="badge">Fail2Ban</span>
+        <span class="badge">Firewall</span>
+        <span class="badge">TCP/IP</span>
+        <span class="badge">VLAN</span>
+        <span class="badge">OSPF</span>
+        <span class="badge">ACL</span>
+        <span class="badge">NAT</span>
+        <span class="badge">DHCP</span>
     </div>
 
     <div class="card">
         <h2>🚀 Projects</h2>
-        <p><strong>🔐 Secure Web Server (Final Boss Project)</strong></p>
-        <ul>
-            <li>Configured NGINX web server</li>
-            <li>Implemented authentication system</li>
-            <li>Configured Fail2Ban to block attackers</li>
-            <li>Secured system using UFW firewall</li>
-            <li>Enabled HTTPS encryption</li>
-        </ul>
+        <p><strong>Secure Web Server</strong></p>
+        <p>NGINX + Fail2Ban + Firewall + HTTPS security system.</p>
 
-        <p><strong>🌐 International Cricket Stadium Network</strong></p>
-        <ul>
-            <li>Designed multi-router enterprise network</li>
-            <li>Implemented VLAN segmentation</li>
-            <li>Configured OSPF routing</li>
-            <li>Applied ACL for security</li>
-            <li>Used DHCP, NAT, trunking</li>
-        </ul>
+        <p><strong>Cricket Stadium Network</strong></p>
+        <p>Enterprise network with VLANs, OSPF, ACL, NAT, DHCP.</p>
     </div>
 
     <div class="card">
-        <h2>🛠 Tools</h2>
-        <div>
-            <span class="badge">Packet Tracer</span>
-            <span class="badge">Linux Terminal</span>
-            <span class="badge">NGINX</span>
-            <span class="badge">GitHub</span>
-        </div>
+        <h2>🔐 Live Demo</h2>
+        <p>Secure system available via local demo (NGINX + Fail2Ban).</p>
+        <a href="/secure" class="button">Access Secure Area</a>
     </div>
 
     <div class="card">
@@ -139,6 +176,22 @@ footer {
 <footer>
     <p>© 2026 Atharva Patil | Built with Linux ⚡</p>
 </footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+
+        if(cardTop < triggerBottom){
+            card.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
